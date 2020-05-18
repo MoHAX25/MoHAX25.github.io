@@ -34,8 +34,8 @@
 		
 			<md-content style="width: 70%">
 		        <label class="search">Поиск</label>
-		        <input  ng-keydown="search_person($event)" ng-model="search" type="text">
-   				<md-button ng-click="search_person()" type="submit">Найти</md-button>
+		        <input  ng-keydown="search_person($event,0)" ng-model="search" type="text">
+   				<md-button ng-click="search_person(0,1)" type="submit">Найти</md-button>
    				<md-button ng-click="start()">Сбросить</md-button>
    				<span>{{search_alert}}</span>
 			</md-content>

@@ -267,8 +267,8 @@
 		    return Math.abs(ageDate.getUTCFullYear() - 1970);
 		}
 		
-		$scope.search_person = function(ev) {
-			if(ev.keyCode == 13) {
+		$scope.search_person = function(ev,source) {
+			if(ev.keyCode == 13 || source) {
 				if($scope.search != undefined){
 				$scope.search_alert = '';
 				 $scope.data = $scope.data.filter(function(item) { 
