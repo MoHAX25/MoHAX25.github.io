@@ -1,0 +1,77 @@
+<md-dialog aria-label="Добавление/редактирование" style="max-width:30%;max-height:100%;">
+  <form ng-cloak ng-submit="answer(item, file)">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Добавление/редактирование</h2>
+        <span flex></span>
+        <!-- <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button> -->
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content   >
+
+      <div class="md-dialog-content ">
+
+        <md-input-container class="md-icon-float md-block">
+          <img class="photo" ng-src="avatars/{{item.img}}">
+          <md-button ng-show="item.id" ng-click="answer('new_avatar')">Сменить фото</md-button>
+          <md-button ng-show="item.id" ng-click="answer('delete_avatar')">Удалить фото</md-button>
+              
+    
+          <!-- <div class="btn btn-secondary" name="file" ng-model="file" ng-click="delete_avatar(item.id)">Удалить фото</div> -->
+
+        </md-input-container>
+        <div layout-gt-sm="row">
+            <md-input-container class="md-icon-float md-block">
+            <label>Имя</label>
+            <input type="text" required  ng-model="item.name" />
+          </md-input-container>   
+          <md-input-container class="md-icon-float md-block">
+            <label>Фамилия</label>
+            <input type="text" required  ng-model="item.sec_name" />
+          </md-input-container>
+      </div>
+        
+        <div layout-gt-sm="row">
+         <md-input-container class="md-icon-float md-block">
+          <label>Дата Рождения</label>
+          <md-datepicker ng-model="item.date_of_birth" required  md-placeholder="Enter date"></md-datepicker>
+        </md-input-container>
+       <md-input-container>
+        <label>Должность</label>
+        <md-select ng-model="item.job" required >
+          <md-option ng-repeat="job in jobs " ng-value="job.job_name">{{job.job_name}}</md-option>
+        </md-select>
+      </md-input-container>
+      </div>
+     
+         <md-input-container class="md-icon-float md-block">
+
+         <md-checkbox ng-model="item.local" aria-label="Checkbox 1">
+          <span>Удаленная работа</span>
+          </md-checkbox>
+        </md-input-container>
+
+        
+
+         <md-input-container class="md-icon-float md-block">
+          <label>Адрес</label>
+          <input type="text" required  ng-model="item.adress" />
+        </md-input-container>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+    
+      <span flex></span>
+      <md-button ng-click="cancel()">
+       Отменить
+      </md-button>
+      <md-button type="submit" ng-click="">
+       Подтвердить
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

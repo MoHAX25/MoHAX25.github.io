@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Главная страница</title>
+	<meta charset="utf-8">
+	<link rel = "stylesheet" href="src/style.css">
+	<link rel = "stylesheet" href="src/bootstrap.css">
+	
+	<script src="src/angular.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+            integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-cookies.js"></script>
+     <script src="src/ng-file-upload.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.10/angular-material.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.9/angular-material.min.css">
+	
+	<script type="text/javascript" src="src/script.js"></script>
+	
+</head>
+
+<body ng-controller="form_controller" ng-cloak>
+	<div style="visibility: hidden">
+	    <div class="md-dialog-container" id="avadia">
+	      <md-dialog layout-padding>
+	        <div class="upload" ngf-drop="upload_avatar(file)" ng-model="file" name="file" type="file" ngf-select="upload_avatar(file)">Нажмите сюда</div>
+	      </md-dialog>
+	    </div>
+  	</div>
+	<div class="container-sm">
+		
+			<md-content style="width: 70%">
+		        <label class="search">Поиск</label>
+		        <input  ng-keydown="search_person($event)" ng-model="search" type="text">
+   				<md-button ng-click="search_person()" type="submit">Найти</md-button>
+   				<md-button ng-click="start()">Сбросить</md-button>
+   				<span>{{search_alert}}</span>
+			</md-content>
+		
+		<div class="buttons_bar">
+			 <md-button class="md-primary md-raised" id="1" ng-click="add_edit_person($event)">
+      			Добавить
+    		</md-button>
+			 <md-button class="md-primary md-raised" id="2" ng-click="add_edit_person($event,selected_person)" ng-disabled="select">
+      			Редактировать
+    		</md-button>
+			<md-button class="md-warn md-raised" id="3" ng-click="delete_person($event, selected_person)" ng-disabled="select">Удалить</md-button>
+		</div>
+		<table class="table">
+			 <thead class="table_head">
+			 	<tr class="table_tr">
+	                <th class="table_th">Превью</th>
+	                <th class="table_th" name="name" ng-click="sort($event)">Имя</th>
+	                <th class="table_th" name="sec_name" ng-click="sort($event)">Фамилия</th>
+	                <th class="table_th" name="date_of_birth" ng-click="sort($event)">Дата Рождения</th>
+	                <th class="table_th" name="age" ng-click="sort($event)">Возраст</th>
+	                <th class="table_th" name="job" ng-click="sort($event)">Должность</th>
+	                <th class="table_th" name="local" ng-click="sort($event)">Удаленная работа</th>
+	                <th class="table_th" name="adress" ng-click="sort($event)">Адрес проживания</th>
+            	</tr>
+            </thead>
+            <tbody >
+            	<tr class="table_tr" ng-repeat="item in data track by $index" ng-click="selecting(item.id)">
+					<td class="table_td"><img class="avatar" ng-src="avatars/{{item.img}}"></td>
+					<td class="table_td">{{item.name}}</td>
+					<td class="table_td">{{item.sec_name}}</td>
+					<td class="table_td">{{item.date_of_birth | date:'dd.MM.yyyy'}}</td>
+					<td class="table_td">{{item.age}}</td>
+					<td class="table_td">{{item.job}}</td>
+					<td class="table_td"><md-checkbox ng-disabled="true" aria-label="Disabled checked checkbox" ng-model="item.local"></md-checkbox></td>
+					<td class="table_td">{{item.adress}}</td>
+				</tr>
+            </tbody>
+	
+		</table>
+	</div>
+<!-- 	<script type="text/javascript">
+		
+
+	</script> -->
+</body>
+</html>

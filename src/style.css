@@ -1,0 +1,74 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+.container-sm {
+	position: relative;
+	top: 5%;
+	left: 5%;
+	
+	
+}
+.search {
+	margin-left: 5px;
+}
+.buttons_bar {
+	display: inline-block;
+	margin: 10px;
+}
+.upload {
+	width: 100%;
+	text-align: center;
+	cursor: pointer;
+	height: 200px;
+	border: 1px dashed rgba(137, 196, 244, 0.7);
+	background-color: rgba(228, 241, 254, 1);
+}
+.table {
+	max-width: 80%;
+}
+.table_head {
+	background-color:rgba(240, 240, 240, 1);
+
+}
+.table_th {
+	padding: 10px;
+
+}
+.table_th:focus {
+	background-color:rgba(168, 209, 255, 0.5);
+	outline: none;
+}
+
+
+.table_td {
+	text-align: center;
+}
+.table_tr:focus {
+	background-color:rgba(166, 240, 176, 0.5);
+	outline: none;
+
+}
+.avatar {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.07), 0 0 0 #333; /* Параметры теней */
+    border-radius: 100px;
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    cursor: pointer;
+}
+.dialog {
+
+	width: 10%;
+	height: 80%;
+}
+.photo {
+
+  	cursor: pointer;
+    height: 40%;
+    width: 40%;
+    margin: 5px;
+ 	display: block;
+    margin-left: auto;
+    margin-right: auto
+}
